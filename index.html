@@ -5,10 +5,10 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Unity WebGL Player | Metania Runner</title>
 
-    <script src="%UNITY_WEBGL_LOADER_URL%"></script>
+    <!--<script src="%UNITY_WEBGL_LOADER_URL%"></script>
     <script>
-        // CLOSE TAB
         var gameInstance = UnityLoader.instantiate("gameContainer", "%UNITY_WEBGL_BUILD_URL%", { onProgress: UnityProgress });
+        // CLOSE TAB
 
         //window.onbeforeunload = function (e) {
 
@@ -20,15 +20,9 @@
         //    return "AWS";
         //};
         //// CLOSE TAB
-    </script>
+    </script>-->
 
-    <script type="text/javascript">
-        window.addEventListener('beforeunload', function (e) {
-            gameInstance.SendMessage("OnCloseObject", "OnClose");
-            e.preventDefault();
-            e.returnValue = '';
-        });
-    </script>
+    
 
 
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
@@ -134,7 +128,13 @@
       document.body.appendChild(script);
       </script>
 
-     
+      <script type="text/javascript">
+          window.addEventListener('beforeunload', function (e) {
+              //gameInstance.SendMessage("OnCloseObject", "OnClose");
+              e.preventDefault();
+              e.returnValue = '';
+          });
+      </script>
 
   </body>
 </html>
