@@ -7,16 +7,19 @@
 
     <script src="%UNITY_WEBGL_LOADER_URL%"></script>
     <script>
+        // CLOSE TAB
         var gameInstance = UnityLoader.instantiate("gameContainer", "%UNITY_WEBGL_BUILD_URL%", { onProgress: UnityProgress });
-
-        window.
 
         window.onbeforeunload = function (e) {
 
             console.log("Calling OnClose from Browser!");
             gameInstance.SendMessage("OnCloseObject", "OnClose");
-            return "ASD";
+
+            var dialogText = "You game has been saved! Would you like to continue unloading the page?";
+            e.returnValue = dialogText;
+            return "AWS";
         };
+        // CLOSE TAB
     </script>
 
 
