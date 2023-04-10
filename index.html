@@ -10,18 +10,25 @@
         // CLOSE TAB
         var gameInstance = UnityLoader.instantiate("gameContainer", "%UNITY_WEBGL_BUILD_URL%", { onProgress: UnityProgress });
 
-        window.onbeforeunload = function (e) {
+        //window.onbeforeunload = function (e) {
 
-            console.log("Calling OnClose from Browser!");
-            gameInstance.SendMessage("OnCloseObject", "OnClose");
+        //    console.log("Calling OnClose from Browser!");
+        //    gameInstance.SendMessage("OnCloseObject", "OnClose");
 
-            var dialogText = "You game has been saved! Would you like to continue unloading the page?";
-            e.returnValue = dialogText;
-            return "AWS";
-        };
-        // CLOSE TAB
+        //    var dialogText = "You game has been saved! Would you like to continue unloading the page?";
+        //    e.returnValue = dialogText;
+        //    return "AWS";
+        //};
+        //// CLOSE TAB
     </script>
 
+    <script type="text/javascript">
+        window.addEventListener('beforeunload', function (e) {
+            gameInstance.SendMessage("OnCloseObject", "OnClose");
+            e.preventDefault();
+            e.returnValue = '';
+        });
+    </script>
 
 
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
