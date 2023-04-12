@@ -71,7 +71,7 @@
         streamingAssetsUrl: "StreamingAssets",
         companyName: "Ogre Software",
         productName: "Metania Runner",
-        productVersion: "0.1.15",
+        productVersion: "0.2.1",
         showBanner: unityShowBanner,
       };
 
@@ -113,14 +113,14 @@
       document.body.appendChild(script);
     </script>
 
-    <!--<script src="Build/Demo.loader.js"></script>
+    <script src="Build/Demo.loader.js"></script>
     <script>
-        var gameInstance = loaderUrl.instantiate("gameContainer", buildUrl, {});
-    </script>-->
+        var gameInstance = UnityLoader.instantiate("gameContainer", "%UNITY_WEBGL_BUILD_URL%", { onProgress: UnityProgress });
+    </script>
 
     <script type="text/javascript">
         window.addEventListener('beforeunload', function (e) {
-            //gameInstance.SendMessage("OnCloseObject", "OnClose");
+            gameInstance.SendMessage("OnCloseObject", "OnClose");
             e.preventDefault();
             e.returnValue = '';
         });
