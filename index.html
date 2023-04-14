@@ -4,12 +4,6 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Unity WebGL Player | Metania Runner</title>
-
-   
-
-    
-
-
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
 </head>
@@ -113,14 +107,8 @@
       document.body.appendChild(script);
     </script>
 
-    <script src="Build/Demo.loader.js"></script>
-    <script>
-        var gameInstance = UnityLoader.instantiate("gameContainer", "%UNITY_WEBGL_BUILD_URL%", { onProgress: UnityProgress });
-    </script>
-
     <script type="text/javascript">
         window.addEventListener('beforeunload', function (e) {
-            gameInstance.SendMessage("OnCloseObject", "OnClose");
             e.preventDefault();
             e.returnValue = '';
         });
